@@ -1,0 +1,98 @@
+:root {
+    --couleur-1: #ffe436;
+    --noir : #111111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1b1c1e;
+}
+
+legend {
+    font-family: 'Playfair Display',
+        serif;
+    font-size: 59px;
+    color: var(--couleur-1);
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+h2,h4{
+    color: var(--couleur-1);
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 5%;
+    font-family: Arial;
+    text-align: center;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px 0;
+}
+
+
+input,
+textarea,
+label {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    color: var(--couleur-1);
+}
+
+input,
+textarea {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid var(--couleur-1);
+}
+
+input[type=submit] {
+    border: solid 2px var(--couleur-1);
+    background-color: var(--couleur-1);
+    border-radius: 10px;
+    padding: 4px;
+    margin: 0.3vh;
+    text-decoration: none;
+    font-family: "impact";
+    color: black;
+}
+
+input[type=submit]:hover {
+    animation: button 0.8s forwards;
+}
+@keyframes button {
+    from {
+        background-color: var(--couleur-1);
+        color: var(--noir);
+    }
+
+    to {
+        background-color: var(--noir);
+        color: var(--couleur-1);
+    }
+}
+
+input,
+textarea {
+    color: var(--couleur-1);
+    font-size: 18px;
+    padding: 10px;
+}
+
+input:focus,
+textarea:focus {
+    outline: 1px solid var(--couleur-1);
+}
+

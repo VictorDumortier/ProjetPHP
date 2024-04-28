@@ -1,0 +1,288 @@
+/** STYLE GENERAL APPLIQUE A TOUS LES DOCUMENTS HTML**/
+
+
+:root {
+    --couleur-1: #ffe436;
+    --couleur-2: #009AFF;
+    --gris: #f3f5f4;
+}
+
+body {
+    margin: 0px;
+    margin-top: 0px;
+}
+
+
+body::-webkit-scrollbar { /*cache la scroll bar sur l'int�gralit� du site*/
+    width: 0%;
+}
+
+/*style du header*/
+
+header {
+    height: 8vh;
+    display: grid;
+    grid-template-areas: "logo title connexion pp";
+    grid-template-rows: 100%;
+
+    font-family: "Trebuchet MS";
+    background-color: var(--gris);
+    color: black;
+
+    justify-content: center;
+    align-content: center;
+}
+
+    #unconn {
+        grid-template-columns: 0.25fr 4.2fr 1.5fr 0.1fr;
+    }
+
+    #conn {
+        grid-template-columns: 0.25fr 4fr 1.7fr 0.3fr;
+    }
+
+    #header_title {
+        grid-area: title;
+        align-self : center;
+    }
+
+    #header_img {
+        grid-area : logo;
+        
+        height : 100%;
+        width : auto;
+    }
+
+    #header_pp {
+        grid-area : pp;
+       
+        height : 75%;
+        width : auto;
+        border-radius : 50%;
+
+        justify-self : center;
+        align-self : center;
+    }
+
+    #header_connexion {
+        grid-area: connexion;
+        
+        border: black solid 2px;
+        border-radius: 10px;
+        background-color : black;
+
+        font-size : 120%;
+        text-decoration : none;
+        color : var(--gris);
+
+        justify-self : end;
+        align-self: center;
+        padding : 1vh;
+}
+
+    #header_connexion:hover {
+        animation-name: conn;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes conn {
+        from {
+            color: black;
+        }
+
+        to {
+            color: black;
+            background-color: var(--gris);
+        }
+    }
+
+
+/*style du nav*/
+
+nav {
+    background-color: black;
+    padding: 12.5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    nav a {
+        border: solid 2px var(--couleur-1);
+        background-color: var(--couleur-1);
+        border-radius: 10px;
+        padding: 4px;
+        margin: 0.3vh;
+        text-decoration: none;
+        font-family: "impact";
+        color: black;
+    }
+
+        nav a:hover {
+            animation-name: bouton;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+@keyframes bouton {
+    from {
+        color: black;
+    }
+
+    to {
+        color: var(--couleur-1);
+        background-color: black;
+    }
+}
+
+/*style du footer*/
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.7fr 0.7fr 1.4fr;
+    grid-template-areas: "link"
+        "logo"
+        "text";
+    background-color: var(--gris);
+}
+
+#footer_link, #footer_img, #footer_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer #footer_img {
+    grid-area: logo;
+    justify-content: center;
+}
+
+footer #footer_link {
+    grid-area: link;
+    gap: 5px;
+}
+
+footer #footer_text {
+    grid-area: text;
+    text-align: center;
+    font-size: xx-small;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+footer img {
+    width: 40%;
+    height: auto;
+}
+
+footer a {
+    border: solid 2px black;
+    background-color: black;
+    border-radius: 10px;
+    padding: 3px;
+    text-decoration: none;
+    font-family: "Arial";
+    font-size: 15px;
+    color: white;
+}
+
+    footer a:hover {
+        animation-name: bouton_2;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+@keyframes bouton_2 {
+    from {
+        color: white;
+    }
+
+    to {
+        color: black;
+        background-color: var(--gris);
+    }
+}
+
+/* -------style contact nous------- */
+#contactnous {
+    position: sticky;
+    bottom: 10px;
+    left: 20px;
+}
+
+#contactnous img{
+    border-radius: 30px;
+    width: 60px;
+    transition: border-radius 1s, width 1s; 
+}
+
+
+#contactnous img:hover {
+    animation: none;
+    border-radius: 40px;
+    width: 80px;    
+}
+
+/*---------STYLE TABLETTE---------*/
+
+
+@media only screen and (600px<=width) {
+
+    /*style du footer*/
+
+    footer {
+        grid-template-columns: 0.66fr 1.34fr;
+        grid-template-rows: 2fr 1fr;
+        grid-template-areas: "link logo"
+            "text text";
+    }
+
+        footer #footer_img {
+            justify-content: center;
+        }
+
+        footer img {
+            width: 40%;
+            height: auto;
+        }
+
+        footer #footer_link {
+            grid-area: link;
+            margin: 1vh;
+            flex-direction: column;
+        }
+}
+
+
+/*---------STYLE ORDINATEUR---------*/
+
+
+@media only screen and (768px<=width) {
+
+    /*style du nav*/
+
+    nav {
+        justify-content: left;
+    }
+
+    /*style du footer*/
+
+    footer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 1fr;
+        grid-template-areas: "link logo"
+                             "text text";
+    }
+
+        footer #footer_link {
+            margin: 1vh;
+            flex-direction: row;
+        }
+
+        footer img {
+            width: 23%;
+            height: auto;
+        }
+}

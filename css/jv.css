@@ -1,0 +1,194 @@
+:root {
+    --couleur-1: #ffe436;
+}
+
+body {
+    background-color : #111111; /*�vite de laisser un espace blanc entre le nav et le d�but du contenu*/
+}
+main {
+    background-color: #111111;
+    font-family : Arial;
+    font-size : 85%;
+}
+
+.conteneur {
+    background-size: auto;
+    position: relative;
+}
+
+.a, .jv{
+    background-color : black;
+}
+
+.c {
+    display: grid;
+    grid-template-columns: 75px auto 150px;
+    grid-template-areas: "annee jeux legende";
+    margin : 1vh;
+}
+
+.legende {
+    grid-area: legende;
+    position: fixed;
+    color: black;
+    top: 120px;
+    right: 0px;
+    margin: auto;
+    padding: 20px;
+    top: calc(100vh - 450px);
+    font-weight: bold;
+
+}
+
+.fleche{
+    position : relative;
+    top : calc(100vh - 290px);
+}
+
+    .legende a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .legende a:hover {
+            color: black;
+        }
+
+    .legende li:hover {
+        background-color: black;
+        animation-name: leg;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        a{
+            color : var(--couleur-1);
+        }
+    }
+
+@keyframes leg {
+    from {
+        background-color: var(--couleur-1);
+    }
+
+    to {
+        color : var(--couleur-1);
+        background-color: black;
+    }
+}
+
+.legende li {
+    border: 1px rgb(255, 247, 0) solid;
+    border-radius: 20px;
+    background-color: var(--couleur-1);
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+.a {
+    grid-area: annee;
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 60px;
+    border: 2px solid;
+    padding: 20px;
+    margin: 10px;
+    color: yellow;
+    border-radius: 30px 5px 30px 5px;
+}
+
+.jv {
+    grid-area: jeux;
+    display: flex;
+    align-items: center;
+    border: solid var(--couleur-1);
+    border-radius: 50px 5px 5px 5px;
+}
+
+    .jv:hover {
+        background-color: rgb(39, 39, 38);
+    }
+
+    .jv a {
+        text-align: center;
+        border: 1px;
+        border-radius: 5px 5px 5px 5px;
+        color: var(--couleur-1);
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .jv a:hover {
+            animation-name: jv;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            font-size: large;
+        }
+
+@keyframes jv {
+    0% {
+        text-shadow: 0 0 10px #fff;
+    }
+
+    50% {
+        text-shadow: 0 0 20px #ff0;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #fff;
+    }
+}
+
+.jv img .jv a {
+    max-height: 100%;
+}
+
+.conteneur p {
+    color: var(--couleur-1);
+    display: flex;
+    justify-content: center;
+    font-size: small;
+    margin-bottom : 0;
+}
+
+/*---------STYLE TABLETTE---------*/
+
+@media only screen and (600px>=width) {
+    .legende div img {
+        position: fixed;
+        right: 30px;
+        bottom: calc(100vh - 430px);
+        width: 100px;
+    }
+
+    .conteneur p {
+        justify-content: center;
+        font-size: 5px;
+    }
+
+    .jv img {
+        margin-right: 10px;
+        width: 50px;
+        height: 120px;
+        border-radius: 50px 5px 5px 5px;
+    }
+}
+
+/*---------STYLE ORDINATEUR---------*/
+
+@media only screen and (600px<=width) {
+
+    .legende div img {
+        position: fixed;
+        right: 30px;
+        bottom: calc(100vh - 430px);
+        width: 100px;
+    }
+
+    .jv img {
+        width: 20%;
+        margin-right: 10px;
+        width: 80px;
+        height: 120px;
+        border-radius: 50px 5px 5px 5px;
+    }
+}

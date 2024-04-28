@@ -1,0 +1,173 @@
+:root {
+    --couleur-1: #ffe436;
+    --couleur-2: #009AFF;
+    --noir: #111111;
+}
+
+body {
+    background-color: var(--noir);
+    font-family: Arial;
+    color: var(--couleur-1);
+}
+
+#Title{
+    text-align : center;
+}
+
+#container {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 30vh;
+    grid-template-areas: "info"
+                         "msg"
+                         "form";
+}
+
+.info_forum {
+    grid-area: info;
+    border: solid var(--couleur-1) 2px;
+    border-radius: 10px;
+    background-color: black;
+    margin: 1vw;
+    height: 6vh;
+    display: grid;
+    grid-template-columns: 0.2fr 1.3fr 4fr 1fr 0.5fr;
+    grid-template-rows: 6vh;
+    grid-template-areas: "picture auteur title date btn"
+}
+
+#titre {
+    grid-area: title;
+    font-size: x-large;
+    justify-self: center;
+    align-self: center;
+}
+
+#picture {
+    grid-area: picture;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 70%;
+    width: auto;
+    justify-self: center;
+    align-self: center;
+}
+
+#auteur {
+    grid-area: auteur;
+    text-align: start;
+    align-self: center;
+    padding: 0.5vh;
+}
+
+#date {
+    grid-area: date;
+    justify-self: end;
+    align-self: center;
+    margin: 1vh;
+}
+
+.reponse {
+    grid-area : msg;
+    border: solid var(--couleur-1) 2px;
+    border-radius: 10px;
+    background-color: black;
+    margin: 1vw;
+    display: grid;
+    grid-template-columns: 0.15fr 3.85fr 0.7fr 0.3fr;
+    grid-template-rows: 5vh 10vh;
+    grid-template-areas: "picture auteur date btn"
+                         "msg     msg    msg  msg";
+}
+
+.rep_picture {
+    grid-area: picture;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 70%;
+    width: auto;
+    justify-self: end;
+    align-self: center;
+}
+
+.rep_auteur {
+    grid-area: auteur;
+    text-align: start;
+    padding: 0.5vw;
+}
+
+.rep_date {
+    grid-area: date;
+    justify-self: end;
+    align-self: center;
+    margin: 3vh;
+}
+
+.rep_msg {
+    grid-area: msg;
+    padding: 1vh;
+    text-align: start;
+    flex-wrap: wrap;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+    .rep_msg::-webkit-scrollbar {
+        display: none;
+    }
+
+#form {
+    grid-area: form;
+    border: solid var(--couleur-1) 2px;
+    border-radius: 10px;
+    background-color: black;
+    height: auto;
+    margin: 1vw;
+    resize: none;
+}
+
+label[for="message"] {
+    font-size: large;
+}
+
+#msg {
+    height: 6vh;
+    width: 75vw;
+    resize: none;
+}
+
+#sujet {
+    width: 14vw;
+}
+
+#send {
+    width: auto;
+    font-size: 14px;
+    color: var(--jaune);
+    background-color: var(--noir);
+    border-radius: 10px;
+    padding: 3px;
+    height: 30px;
+    border-color: var(--jaune);
+    transition: border-color 1s linear;
+    position: relative;
+    left: 8%;
+    bottom: 20%;
+}
+
+.empty {
+    height : 0vh;
+    border : none;
+}
+
+
+footer {
+    color: black;
+    position : absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

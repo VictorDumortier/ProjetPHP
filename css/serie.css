@@ -1,0 +1,138 @@
+/* STYLE PAGE_SERIE*/
+
+:root {
+    --couleur-1: #ffe436;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #111111;
+    font-family : Arial;
+}
+
+main {
+    margin: 1% 2% 1%;
+    font-size: 20px;
+    color: var(--couleur-1);
+}
+
+/* Début du CSS première série */
+
+#Titre {
+    text-align: center;
+}
+
+    #Titre h1 {
+        background-color: transparent;
+    }
+
+main a:link {
+    color: inherit;
+    text-decoration: none;
+}
+
+main a:visited {
+    color: inherit;
+}
+
+main a:hover {
+    animation-name: link;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes link {
+    0% {
+        text-shadow: 0 0 10px #fff;
+    }
+
+    50% {
+        text-shadow: 0 0 20px #ff0;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #fff;
+    }
+}
+
+h4 {
+    text-align: center;
+}
+
+main > div {
+    border-radius: 10px;
+    background-color:black;
+}
+
+    main > div:first-child {
+        background-color: inherit;
+    }
+
+    main > div > div:nth-child(2) {
+        text-align: center;
+    }
+
+.serie {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+    border: 2px solid #ffe436;
+}
+
+    .serie img {
+        width: 100%;
+        border-radius: 5%;
+    }
+
+    .serie ul {
+        border-radius: 10%;
+        padding-left: 20px;
+        padding-right: 40px;
+        text-align: center;
+        list-style-type: none;
+    }
+
+
+/* Styles généraux pour les images */
+.serie img {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: block; /* Pour éviter un espace sous les images */
+    margin: 0 auto;
+}
+
+/*Adaptation aux différent type d'écran*/
+
+@media only screen and (700px<=width) {
+    .serie {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    main > div > div:nth-child(3){
+        grid-column:1/3;
+    }
+
+    .serie img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Adaptation format tableau */
+@media only screen and (1100px<=width) {
+    .serie {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    main > div > div:nth-child(3) {
+        grid-column: 3/4;
+    }
+    
+}

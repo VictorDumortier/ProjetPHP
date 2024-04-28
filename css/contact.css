@@ -1,0 +1,138 @@
+:root {
+    --cb: linear-gradient(to bottom, rgb(0, 0, 0), rgb(37, 35, 35));
+    --noir: #111111;
+    --couleur-1: #ffe436;
+}
+
+body {
+    background: var(--noir);
+    font-family : Arial;
+}
+
+h2 {
+    grid-area: h2;
+    text-align : center;
+    text-decoration: underline;
+    color: var(--couleur-1);
+}
+
+.telephone {
+    grid-area: telephone;
+    border-style: inherit;
+    text-align: center;
+    color: var(--couleur-1);
+    padding: 100px;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: black;
+}
+
+    .telephone:hover {
+        transform: scale(1.05);
+        background-color: rgb(46, 45, 45);
+        text-shadow: 0px 0px 10px #fff;
+    }
+
+    .telephone a:link {
+        color: var(--couleur-1);
+        text-decoration: underline
+    }
+
+    .telephone a:visited {
+        color: var(--couleur-1);
+    }
+
+
+.mail {
+    grid-area: mail;
+    border-style: inherit;
+    text-align: center;
+    color: var(--couleur-1);
+    left: 20px;
+    padding: 100px;
+    margin: 0px;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: black;
+}
+
+    .mail:hover {
+        transform: scale(1.05);
+        background-color: rgb(46, 45, 45);
+        animation-name: mail;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        text-shadow: 0px 0px 10px #fff;
+    }
+
+
+
+    .mail a:link {
+        color: var(--couleur-1);
+        text-decoration: underline
+    }
+
+    .mail a:visited {
+        color: var(--couleur-1);
+    }
+
+.place {
+    font-size: small;
+    grid-area: place;
+    border-style: inherit;
+    text-align: center;
+    color: var(--couleur-1);
+    padding: 5vh;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: black;
+}
+
+    .place:hover {
+        transform: scale(1.05);
+        background-color: rgb(46, 45, 45);
+        text-shadow: 0px 0px 10px #fff;
+    }
+
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media only screen and (1250px>=width) {
+    h2 {
+        margin: auto;
+        font-size: 40px;
+    }
+
+    .mail:hover {
+        transform: scale(1.01);
+    }
+
+    .telephone:hover {
+        transform: scale(1.01);
+    }
+
+    .place:hover {
+        transform: scale(1.01);
+    }
+}
+
+@media only screen and (1250px<=width) {
+    #contact {
+        display: grid;
+        grid-template-rows: repeat(2,auto) 150px;
+        grid-template-areas: "ee   h2    ef"
+                             "mail place telephone";
+        justify-items: center;
+    }
+
+    h2 {
+        font-size : 250%; 
+    }
+
+}

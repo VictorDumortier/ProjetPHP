@@ -1,0 +1,3 @@
+ ExpiresActive On
+ ExpiresDefault "now"
+ ErrorDocument 404 http://localhost/Projet_Main_Final/php/error404.php

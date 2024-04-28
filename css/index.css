@@ -1,0 +1,331 @@
+/* STYLE INDEX*/
+
+:root {
+    --couleur-1: #ffe436;
+    --noir : #111111;
+}
+
+
+/* ---------------------BackGround Video------------------------- */
+
+#background-video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+#p {
+    height: 55vh;
+    padding: 10%;
+    color: #0eebeb;
+    font-size: xx-large;
+    font-family: system-ui;
+    text-align: center;
+}
+
+/* ---------------------Title------------------------- */
+
+h4, h3{
+    color: var(--couleur-1);
+    font-family: Arial;
+    text-align: center;
+    font-size: large;
+    margin : 0.4vw;
+}
+
+/* ---------------------Main Content------------------------- */
+
+div.video_hidden {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: repeat(7, 33vh);
+    grid-template-areas :"News"
+                         "News"
+                         "Contenu"
+                         "Contenu"
+                         "Aside"  
+                         "Aside"
+                         "Aside";
+
+    background-color : black;
+}
+
+#sidebar, #Contenu, #news {
+    margin: 1vw;
+    background-color: var(--noir);
+    border: solid 3px var(--couleur-1);
+    border-radius : 10px;
+}
+
+#sidebar > p, #Contenu > p, #news > p{
+    color: var(--couleur-1);
+    font-family : Arial;
+    padding : 0.3vw;
+}
+
+/* ---------------------SideBar------------------------- */
+
+#sidebar {
+    grid-area: Aside;
+    list-style-type : none;
+    overflow : scroll;
+}
+
+#sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#sidebar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.chrono {
+    display: flex;
+    flex-direction: row;
+    margin: 1vh auto;
+    width: 80%;
+    border: solid 2px var(--couleur-1);
+    border-radius: 20px;
+    overflow : hidden;
+}
+
+.chrono > img {
+    height: auto;
+    width: 20%
+}
+
+.chrono > a {
+    margin: 6vw;
+    border: solid 2px var(--couleur-1);
+    background-color: var(--couleur-1);
+    border-radius: 5px;
+    padding: 4px;
+    text-decoration: none;
+    font-family: Arial;
+    color: black
+}
+
+.chrono a:hover {
+    animation-name: bouton;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bouton {
+    from {
+        color: black;
+    }
+
+    to {
+        color: var(--couleur-1);
+        background-color: black;
+    }
+}
+
+/* ---------------------News------------------------- */
+
+#news {
+    grid-area: News;
+    overflow : scroll;
+}
+
+#news::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#news {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.news_content {
+    display : grid;
+    grid-template-columns : 0.5fr 1fr 1fr ;
+    grid-template-rows : 1fr 1.5fr 1fr ;
+    grid-template-areas : "img title   title"
+                          "img content content"
+                          "img empty   link";
+
+    color : var(--couleur-1);
+    margin : 1vh;
+    font-family : Arial;
+}
+
+.News_Tilte{
+    grid-area : title;
+    font-size : medium;
+}
+
+.News_Text {
+    grid-area: content;
+    margin : 1vh;
+}
+
+.News_img {
+    grid-area: img;
+    width : 60%;
+    height : auto;
+    margin : auto;
+}
+
+.News_info {
+    grid-area: link;
+    margin: auto;
+    border: solid 2px var(--couleur-1);
+    background-color: var(--couleur-1);
+    border-radius: 5px;
+    padding: 4px;
+    text-decoration: none;
+    font-family: Arial;
+    color: black
+}
+
+.News_info:hover {
+    animation-name: bouton;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+/* ---------------------Présentation------------------------- */
+#Contenu {
+    grid-area: Contenu;
+    overflow: scroll;
+}
+
+#Contenu::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#Contenu {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* ---------------------Faulcon Wiki------------------------- */
+
+#Faulcon-Wiki {
+    border: solid var(--couleur-1) 2px;
+    background: black;
+    margin: 2vh auto 4vh ; 
+    height: auto; 
+    width: 95%; 
+}
+
+.img-container {
+
+    position: relative;
+    height: auto;
+    width: 100%; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+    .img-container img {
+        max-width: 100%; 
+        height: auto; 
+    }
+
+.text-container {
+    margin: 1vh;
+
+    position: relative;
+    height: auto; 
+    width: 100%; 
+
+    text-align: center;
+}
+
+
+/* ---------------------Style gradient------------------------- */
+#gradient-haut {
+    height: 10vh;
+    width: auto;
+    background: linear-gradient(360deg, black 30%, transparent 95%);
+}
+
+    #gradient-bas {
+        height: 10vh;
+        width: auto;
+        background: linear-gradient(180deg, black 30%, transparent 95%);
+    }
+
+
+
+/*---------STYLE TABLETTE---------*/
+
+@media only screen and (600px<=width) {
+
+    div.video_hidden {
+        grid-template-rows: 50vh repeat(2, 0vh) repeat(3, 33vh);
+        grid-template-areas: "News"
+            "News"
+            "Contenu"
+            "Contenu"
+            "Aside"
+            "Aside"
+            "Aside";
+    }
+
+    /* ---------------------SideBar------------------------- */
+
+    .chrono > a {
+        margin: auto;
+        font-size: 120%;
+    }
+
+    /* ---------------------Faulcon-Wiki------------------------- */
+
+    #Faulcon-Wiki {
+        margin: 11vh auto;
+        height: auto;
+        width: 70vw;
+    }
+
+    .img-container {
+        margin: 2vh;
+        width: auto;
+    }
+
+        .img-container img {
+            width: auto;
+            height: 100%;
+        }
+
+    .text-container {
+        margin: 4vh;
+        height: 5vh;
+        width: auto;
+    }
+
+/*---------STYLE ORDINATEUR---------*/
+
+
+@media only screen and (768px<=width) {
+
+    /* ---------------------Main Content------------------------- */
+
+    div.video_hidden {
+        grid-template-columns: 35vw 35vw 28.5vw;
+        grid-template-rows: repeat(3, 36vh);
+        grid-template-areas: "News     News     Aside"
+                             "News     News     Aside"
+                             "Contenu  Contenu  Aside";
+    }
+
+    /* ---------------------SideBar------------------------- */
+
+    .chrono > a {
+        margin: auto;
+        font-size: 90%;
+    }
+
+}

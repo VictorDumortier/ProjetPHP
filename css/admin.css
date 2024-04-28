@@ -1,0 +1,81 @@
+:root {
+    --jaune: #ffe436;
+}
+main {
+    background-color: #111111;
+    font-family : Arial;
+    display: grid;
+    grid-template-columns: 50vw 30vw;
+    grid-template-rows: 78vh;
+    grid-template-areas: "signal control";
+    gap: 4vw;
+}
+
+    main > fieldset {
+        grid-area: signal;
+        overflow: scroll;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    #main::-webkit-scrollbar {
+        display: none;
+    }
+
+main>div {
+    grid-area: control;
+}
+
+main a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main fieldset {
+    padding: 1vw;
+    margin : 2vh;
+    width: 38vw;
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--jaune);
+    color: var(--jaune);
+    text-align: center;
+    border-radius: 15px;
+    box-sizing:content-box;
+    background : black;
+}
+
+main div {
+    padding: 1vw;
+    margin : 2vh;
+    width: 48vw;
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--jaune);
+    color: var(--jaune);
+    text-align: center;
+    border-radius: 15px;
+    box-sizing: content-box;
+}
+
+
+main>div{
+    border: none;
+    width : auto;
+}
+
+#signal {
+    background-color: #111111;
+}
+
+#message {
+    color: black;
+    border: gray solid 1px;
+    background-color: lightgray;
+    font-size: 14px;
+    padding: 0.1vh 0.5vh;
+}
+
+    #message:hover {
+        background-color: lightskyblue;
+    }

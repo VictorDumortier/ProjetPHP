@@ -1,0 +1,98 @@
+:root {
+    --couleur-1: #ffe436;
+    --couleur-2: #009AFF;
+    --noir: #111111;
+}
+
+body{
+    background : var(--noir);
+    color :var(--couleur-1);
+    font-family : Arial;
+}
+
+#container {
+    display: flex;
+    padding : 1vh;
+}
+
+#Titre{
+    text-align : center;
+}
+
+#list_message {
+    border: solid var(--couleur-1) 2px;
+    background-color: black;
+    border-radius: 10px;
+    height : 62vh;
+    margin: 2vw;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    justify-self : center;
+    align-self : center;
+}
+
+#list_message::-webkit-scrollbar {
+    display: none;
+}
+
+
+.message{
+    border : solid var(--couleur-1) 2px;
+    border-radius : 10px;
+    background-color : var(--noir);
+    margin : 1vw;
+
+    display : grid;
+    grid-template-columns : 2fr 1fr 1fr;
+    grid-template-rows : 7vh 15vh;
+    grid-template-areas : "title email auteur"
+                          "msg   msg   btn";
+}
+
+.titre {
+    grid-area: title;
+    text-align: center;
+    padding: 0.5vw;
+}
+
+.auteur{
+    grid-area : auteur;
+    text-align : start;
+    padding : 0.5vw;
+}
+
+.email{
+    grid-area : email;
+    text-align : start;
+    padding : 0.5vw;
+}
+
+.msg{
+    grid-area : msg;
+    padding : 1vh;
+}
+
+.btn {
+    grid-area: btn;
+    text-decoration: none;
+    background: black;
+    border-radius: 5px;
+    border: solid 1px var(--couleur-1);
+    color: var(--couleur-1);
+    display: inline;
+    height: auto;
+    width: auto;
+    justify-self: center;
+    align-self: center;
+    padding: 0.3vh;
+}
+
+footer{
+    color : black;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

@@ -1,0 +1,222 @@
+:root {
+    --couleur-1: #ffe436;
+    --couleur-2: #009AFF;
+    --noir: #111111;
+}
+
+body{
+    background-color : var(--noir);
+    font-family:Arial;
+    color : var(--couleur-1);
+}
+
+#container{
+    display : grid;
+    height : auto;
+    grid-template-columns : 1fr;
+    grid-template-rows : 1fr 50vh 2fr;
+    grid-template-areas : "info"
+                          "msg"
+                          "rep";
+}
+
+.info_forum {
+    grid-area: info;
+    border: solid var(--couleur-1) 2px;
+    border-radius: 10px;
+    background-color: black;
+    margin: 1vw;
+    height: 6vh;
+    display: grid;
+    grid-template-columns: 0.2fr 1.3fr 4fr 1fr 0.5fr;
+    grid-template-rows: 6vh;
+    grid-template-areas: "picture auteur title date btn"
+}
+
+#titre {
+    grid-area: title;
+    font-size : x-large;
+    justify-self : center;
+    align-self : center;
+}
+
+#picture {
+    grid-area: picture;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 70%;
+    width: auto;
+    justify-self: center;
+    align-self: center;
+}
+
+#auteur {
+    grid-area: auteur;
+    text-align: start;
+    align-self : center;
+    padding : 0.5vh;
+}
+
+#date {
+    grid-area: date;
+    justify-self: end;
+    align-self: center;
+    margin : 1vh;
+}
+
+#list_msg {
+    grid-area: msg;
+    border: solid var(--couleur-1) 2px;
+    background-color: black;
+    border-radius: 10px;
+    margin: 1vw;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+    #list_forum::-webkit-scrollbar {
+        display: none;
+    }
+
+.reponse {
+    border: solid var(--couleur-1) 2px;
+    border-radius: 10px;
+    background-color: var(--noir);
+    margin: 1vw;
+    display: grid;
+    grid-template-columns: 0.15fr 3.85fr 0.7fr 0.3fr;
+    grid-template-rows: 5vh 10vh;
+    grid-template-areas: "picture auteur date btn"
+                         "msg     msg    msg  msg";
+}
+
+.rep_picture {
+    grid-area: picture;
+    object-fit: cover;
+    border-radius : 50%;
+    height: 70%;
+    width: auto;
+    justify-self: end;
+    align-self: center;
+}
+
+.rep_auteur {
+    grid-area: auteur;
+    text-align: start;
+    padding: 0.5vw;
+}
+
+.rep_date {
+    grid-area: date;
+    justify-self: end;
+    align-self: center;
+    margin : 3vh;
+}
+
+.btn{
+    grid-area: btn;
+    text-decoration: none;
+    background: black;
+    border-radius: 5px;
+
+    border: solid 1px var(--couleur-1);
+    color: var(--couleur-1);
+
+    display : inline;
+    height: auto;
+    width: auto;
+
+    justify-self: center;
+    align-self: center;
+    padding: 0.3vh;
+}
+
+.rep_msg {
+    grid-area: msg;
+    padding: 1vh;
+    text-align: start;
+    flex-wrap: wrap;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+    .rep_msg::-webkit-scrollbar {
+        display: none;
+    }
+
+/* class suplémentaire appliqué sur les message dont le user est l'auteur*/
+.user_msg {
+    color: var(--couleur-2);
+    border-color: var(--couleur-2);
+}
+
+/* class suplémentaire appliqué aux message signaler quand l'admin se rend sur le forum depuis la dashboard*/
+.signal {
+    text-decoration: none;
+    color: red;
+    border-color: red;
+}
+
+#respond {
+    grid-area : rep;
+    border: solid var(--couleur-1) 2px;
+    border-radius: 10px;
+    background-color: black;
+    height : 10vh;
+    margin: 1vw;
+    resize : none;
+}
+
+label[for="message"] {
+    font-size : large;
+}
+
+#msg {
+    height : 6vh;
+    width : 75vw;
+    resize: none;
+}
+
+#send {
+    width: auto;
+    font-size: 14px;
+    color: var(--jaune);
+    background-color: var(--noir);
+    border-radius: 10px;
+    padding: 3px;
+    height: 30px;
+    border-color: var(--jaune);
+    transition: border-color 1s linear;
+
+    position : relative;
+    left : 8%;
+    bottom : 20%;
+}
+
+#connexion {
+    text-decoration: none;
+    font-size : large;
+    color: black;
+    border: solid var(--couleur-1) 2px;
+    border-radius : 5px;
+    background-color : var(--couleur-1);
+
+    padding : 0.3vh;
+    margin : 1vh;
+}
+
+    #connexion:hover {
+        animation-name: bouton;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+footer {
+    color: black;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

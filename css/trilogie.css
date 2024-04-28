@@ -1,0 +1,228 @@
+/* STYLE PAGE_TRILOGIE (appliqué a trois documents html) */
+
+:root {
+    --couleur-1: #ffe436;
+}
+
+body {
+    background-color: #111111;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15vh repeat(3,auto);
+    grid-template-areas: "Titre"
+                         "epI"
+                         "epII"
+                         "epIII";
+    gap: 2vh;
+    margin: 1% 2% 1%;
+    color: var(--couleur-1);
+    font-family:Arial;
+}
+
+#Titre {
+    grid-area: Titre;
+    text-align: center;
+}
+
+#Titre p{
+    font-size:small;
+}
+
+#epI, #epII, #epIII {
+    background-color: inherit;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh 52vh repeat(2, auto);
+    border: solid var(--couleur-1);
+    border-radius: 10px;
+    margin: 1%;
+    box-sizing:content-box;
+    background-color:black;
+}
+
+#epI {
+    grid-area: epI;
+    grid-template-areas: "titre1"
+                         "affiche1"
+                         "info1"
+                         "resume1";
+}
+
+    #epI h2 {
+        grid-area: titre1;
+    }
+
+    #epI div:nth-child(2) {
+        grid-area: affiche1;
+    }
+
+    #epI div:nth-child(3) {
+        grid-area: info1;
+    }
+
+    #epI div:last-child {
+        grid-area: resume1;
+    }
+
+#epII {
+    grid-area: epII;
+    grid-template-areas: "titre2"
+                         "affiche2"
+                         "info2"
+                         "resume2";
+}
+
+    #epII h2 {
+        grid-area: titre2;
+    }
+
+    #epII div:nth-child(2) {
+        grid-area: affiche2;
+    }
+
+    #epII div:nth-child(3) {
+        grid-area: info2;
+    }
+
+    #epII div:last-child {
+        grid-area: resume2;
+    }
+
+#epIII {
+    grid-area: epIII;
+    grid-template-areas: "titre3"
+                         "affiche3"
+                         "info3"
+                         "resume3";
+}
+
+    #epIII h2{
+        grid-area:titre3;
+    }
+
+    #epIII div:nth-child(2) {
+        grid-area: affiche3;
+    }
+
+    #epIII div:nth-child(3) {
+        grid-area: info3;
+    }
+
+    #epIII div:last-child {
+        grid-area: resume3;
+    }
+
+h2{
+    text-align:center;
+}
+
+div > div {
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+img {
+    height: 100%;
+    width: auto;
+}
+
+div > div:nth-child(3){
+    padding:1%;
+}
+
+dl {
+    text-align:left;
+    list-style-type: none;
+}
+
+dt {
+    font-weight: bold;
+}
+
+#connh3 {
+    display : inline;
+    margin : auto;
+    display : margin;
+}
+
+#connlink {
+    display : inline-block;
+    position: relative;
+    left: 0.5vw;
+    text-decoration: none;
+    color: var(--couleur-1);
+    border: yellow solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+@media only screen and (600px<=width) {
+    /* POUR TABLETTE
+    Le style dans ce media-query va être appliqué 
+    EN PLUS du style CSS pour téléphone
+    */
+    #epI, #epII, #epIII {
+        grid-template-columns: repeat(2,auto);
+        grid-template-rows: 10vh 52vh auto;
+    }
+
+    #epI {
+        grid-template-areas: "titre1 titre1"
+                             "affiche1 info1"
+                             "resume1 resume1";
+    }
+    #epII {
+        grid-template-areas: "titre2 titre2"
+                             "info2 affiche2"
+                             "resume2 resume2";
+    }
+    #epIII {
+        grid-template-areas: "titre3 titre3"
+                             "affiche3 info3"
+                             "resume3 resume3";
+    }
+
+}
+
+@media only screen and (1100px<=width) {
+    /* POUR ORDINATEUR
+    Le style dans ce media-query va être appliqué 
+    EN PLUS du style CSS pour téléphone et tablette
+    */
+    #epI, #epII, #epIII {
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 10vh auto;
+    }
+
+    #epI {
+        grid-template-areas: "titre1 titre1 titre1"
+                             "affiche1 info1 resume1";
+    }
+
+    #epII {
+        grid-template-areas: "titre2 titre2 titre2"
+                             "resume2 info2 affiche2";
+    }
+
+    #epIII {
+        grid-template-areas: "titre3 titre3 titre3"
+                             "affiche3 info3 resume3";
+    }
+
+    div > div {
+        height: auto;
+    }
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,150 @@
+:root {
+    --jaune: #ffe436;
+    --noir: #111111;
+}
+
+main {
+    font-family: "Trebuchet MS";
+    font-size: 10pt;
+}
+
+#background-video {
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    margin: 5vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main fieldset {
+    padding: 30px;
+    border-width: 3px;
+    width: auto;
+    border-style: solid;
+    border-color: var(--jaune);
+    color: var(--jaune);
+    text-align: center;
+    border-radius: 15px 15px 15px 15px;
+    backdrop-filter: blur(10px);
+}
+
+main img {
+    border-radius: 50%;
+}
+
+#info p{
+    font-size: 12pt;
+    margin:0px;
+}
+
+#info p:nth-child(2), #info p:nth-child(5){
+    font-size: 15pt;
+}
+
+form #bouton {
+    text-align: right;
+}
+
+main a, .button{
+    width: auto;
+    font-size: 14px;
+    color: var(--jaune);
+    background-color: var(--noir);
+    border-radius: 20px 20px 20px 20px;
+    padding: 3px;
+    height: 30px;
+    border: solid 1px var(--jaune);
+    transition: border-color 1s linear;
+    text-decoration: none;
+}
+
+    main a:hover, .button:hover {
+        animation: button 0.8s forwards;
+    }
+
+@keyframes button {
+    from {
+        background-color: var(--noir);
+        color: var(--jaune);
+    }
+
+    to {
+        background-color: var(--jaune);
+        color: var(--noir);
+    }
+}
+
+main legend {
+    font-size: 20px;
+}
+
+form input:not(.button) {
+    border-radius: 20px 20px 20px 20px;
+    padding: 3px;
+    height: 30px;
+    width: 250px;
+    background: transparent;
+    font-size: 15px;
+    border-color: var(--jaune);
+    transition: border-color 1s linear;
+    color: var(--jaune);
+}
+
+form input:focus {
+    border-color: var(--jaune);
+}
+
+form ul {
+    text-align: left;
+    list-style-type: none; /* Supprime les puces */
+}
+
+form li {
+    font-size: 10px;
+    color: white;
+}
+
+form ul li:before {
+    content: "\2022"; /* Ajoute un point personnalis� */
+    color: red; /* Change la couleur du point personnalis� */
+    display: inline-block;
+    font-size: 14px;
+    width: 1em; /* Ajuste l'espace entre le point et le texte */
+    margin-left: -1em; /* Ajuste l'espace entre le point et le bord gauche */
+}
+
+hr {
+    border-color: var(--jaune);
+}
+
+#del {
+    color:red;
+    border-color:red;
+    font-size:10px;
+}
+
+#del:hover {
+    animation: button2 0.8s forwards;
+}
+
+@keyframes button2 {
+from {
+    background-color: var(--noir);
+    color: red;
+}
+
+to {
+    background-color: red;
+    color: var(--noir);
+}
+}
