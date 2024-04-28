@@ -125,9 +125,8 @@
                         else $cssClass = "";
                         
                         echo '<div class="reponse'.$cssClass.'">';
-                        if (isset($msg["name"])){
-                            echo '<a class="btn'.$cssClass.'" href="page_editerForum.php?id='.$msg["position"].'&type=0">Modifier</a>'; //si le user est admin ou auteur on affiche le bouton de modification (si le compte de l'auteur existe encore)
-                        } 
+                        echo '<a class="btn'.$cssClass.'" href="page_editerForum.php?id='.$msg["position"].'&type=0">Modifier</a>'; //si le user est admin ou auteur on affiche le bouton de modification
+ 
 
                         //on ajoute une mention au pseudo de l'auteur si il s'agit de l'utilisateur connecté'
                         if ($isauteur) $auteur .= " (Vous)";

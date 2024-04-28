@@ -33,24 +33,34 @@
                 try{
                     require("connexionBDD.php");// $conn
 
-                    $req = "SELECT * FROM list_forum WHERE id_forum = ?";
+                    $req = "SELECT * FROM list_forum LEFT JOIN compte ON compte.id = list_forum.id_auteur WHERE id_forum = ?";
                     $req = $conn->prepare($req);
                     $req->execute(array($_GET["id"]));
                     $forum = $req->fetch(PDO::FETCH_ASSOC);
-
-                    if($_SESSION["id"] != $forum["id_auteur"] && $_SESSION["admin"]==0) header("location:list_forum.php") ; //on vérifie que la personne connecté est bien l'auteur du forum ou admin 
-
-                    echo '<div class="info_forum">';
-                    echo '<h4 id="titre"> Sujet : '. $forum["titre"]. '</h4>';
-                    echo '<img id="picture" src="../img/compte/'.$_SESSION["profilePicture"].'">';
-                    echo '<p id="auteur">'.$_SESSION["name"]. '</p>';
-                    echo '<p id="date"> Date : '.$forum["date"]. '</p>';
-                    echo '</div>';
 
                     $msg = str_replace(" (Message Modifié)", "", $forum["message"]) ; //on récupère le message originel du forum
                     $date = $forum["date"]; 
                     $titre = str_replace(" (Titre Modifié)", "", $forum["titre"]); //on recupere le titre en retirant un potentiel avertissement présent si le message a déjà été modifié une fois
                     $id_auteur = $forum["id_auteur"]; //id de l'auteur pour faire une vérification de sécurité 
+
+                    //cas d'un administrateur qui modifie le forum d'un compte supprimé 
+                    if(isset($forum["name"]) && isset($forum["profilePicture"])){
+                        $profilePicture = $forum["profilePicture"];
+                        $name = $forum["name"];
+                    }
+
+                    else {
+                        $profilePicture = "pp_default.jpg";
+                        $name = "Profil Introuvable";
+                    }
+
+                    echo '<div class="info_forum">';
+                    echo '<h4 id="titre"> Sujet : '. $forum["titre"]. '</h4>';
+                    echo '<img id="picture" src="../img/compte/'.$profilePicture.'">';
+                    echo '<p id="auteur">'.$name. '</p>';
+                    echo '<p id="date"> Date : '.$forum["date"]. '</p>';
+                    echo '</div>';
+
                     $conn = NULL;  
                 }
 
@@ -62,12 +72,13 @@
 
             else {
 
+                // placeholder, pour éviter de laiser un espace de la grille CSS vide on place ce dive avec la class empty qui empeche l'affichage de ce container vide 
                 echo "<div class='info_forum empty'></div>";
 
                 try{
                     require("connexionBDD.php");// $conn
 
-                    $req = "SELECT message, date, id_auteur, id_forum FROM msg_forum WHERE position = ?";
+                    $req = "SELECT * FROM msg_forum LEFT JOIN compte ON compte.id=msg_forum.id_auteur WHERE position = ?";
                     $req = $conn->prepare($req);
                     $req->execute(array($_GET["id"]));
                     $res = $req->fetch(PDO::FETCH_ASSOC);
@@ -76,7 +87,20 @@
                     $date = $res["date"];
                     $id_auteur = $res["id_auteur"];
                     $id_forum = $res["id_forum"];
+                    
+                    //cas d'un administrateur qui modifie un message provenant d'un compte supprimé 
+                    if(isset($res["name"]) && isset($res["profilePicture"])){
+                        $profilePicture = $res["profilePicture"];
+                        $name = $res["name"];
+                    }
+
+                    else {
+                        $profilePicture = "pp_default.jpg";
+                        $name = "Profil Introuvable";
+                    }
+                    
                     $conn = NULL;  
+
                 }
 
                 catch(Exception $e){
@@ -91,8 +115,8 @@
 
             //affichage du message
             echo '<div class="reponse">';
-            echo '<img class="rep_picture" src="../img/compte/'.$_SESSION["profilePicture"].'">';
-            echo '<p class="rep_auteur">'.$_SESSION["name"].' (Message initiale) </p>';
+            echo '<img class="rep_picture" src="../img/compte/'.$profilePicture.'">';
+            echo '<p class="rep_auteur">'.$name.' (Message initiale) </p>';
             echo '<p class="rep_date"> Date : '.$date. '</p>';
             echo '<p class="rep_msg">'.$msg. '</p>';
             echo '</div>';

@@ -22,16 +22,16 @@
         <form action="mail.php" method="POST">
             <Legend>Dites nous</Legend>
             <label for="name">Nom:</label>
-            <input type="text" name="name" id="name"placeholder="Nom" required <?php if (isset($_SESSION['name'])) {echo "value=".$_SESSION['name'];} ?>> <!--Si l'utilisateur à un compte sont pseudo est déjà rempli -->
+            <input type="text" name="name" id="name"placeholder="Nom" maxlength="64" required <?php if (isset($_SESSION['name'])) {echo "value=".$_SESSION['name'];} ?>> <!--Si l'utilisateur à un compte sont pseudo est déjà rempli -->
             <br>
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="Email" required <?php if (isset($_COOKIE['email'])) {echo "value=".$_COOKIE['email'];} ?>> <!--Si l'utilisateur à un compte ou as essayé d'en crée un sont email est déjà rempli grâce à un cookie-->
+            <input type="email" name="email" id="email" placeholder="Email"  maxlength="64" required <?php if (isset($_COOKIE['email'])) {echo "value=".$_COOKIE['email'];} ?>> <!--Si l'utilisateur à un compte ou as essayé d'en crée un sont email est déjà rempli grâce à un cookie-->
             <br>
             <label for="subject">Sujet:</label>
-            <input type="text" name="subject" id="subject" pattern="[A-Za-z0-9-'_ ]"required>
+            <input type="text" name="subject" id="subject" maxlength="64" pattern="[A-Za-z0-9-'_ ]"required>
             <br>
             <label for="message">Message</label>
-            <textarea name="message" cols="30" rows="10" required></textarea>
+            <textarea name="message" cols="30" rows="10"  maxlength="1250" required></textarea>
             <br>
             <input type="submit" name="envoyer" value="Envoyer">
         </form>
