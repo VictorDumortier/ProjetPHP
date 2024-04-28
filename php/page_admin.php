@@ -192,7 +192,7 @@
             <a id="message" href="./page_liste_messages_recue.php">Liste des messages</a>      
         </fieldset>
 
-        <form action="" method="post"> 
+        <form action="" method="post">
             <fieldset>
                 <legend>Supprimer un compte</legend>
 
